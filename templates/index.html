@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Subreddit's Post Comments Analyzer</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<body>
+  <nav class="menu">
+    <a href="/" class="title">Subreddit's Post Comments Analyzer</a>
+  </nav>
+  <h1 class="titles">Reddit Graph Generator</h1>
+  <form style="text-align: center;" class="names" method="POST" action="/graph">
+    <label for="subreddit">Enter a subreddit name:</label>&nbsp&nbsp&nbsp
+    <input type="text" id="subreddit" name="subreddit"><br><br>
+    <label for="subreddit">Enter the number of posts to search from: </label>&nbsp&nbsp&nbsp
+    <input type="number" id="postsno" name="postsno"><br><br>
+    <div style="text-align: justify;margin-left:45%;">
+      <label>Enter the sorting type:</label><br><br>
+      <input type="radio" id="hot" name="sorttype" value="hot">
+      <label for="hot">Hot</label><br>
+      <input type="radio" id="new" name="sorttype" value="new">
+      <label for="new">New</label><br>
+      <input type="radio" id="top" name="sorttype" value="top">
+      <label for="top">Top</label> <br><br>
+      <label>Enter the graph type:</label><br><br>
+      <input type="radio" id="spring" name="graphtype" value="spring">
+      <label for="spring">Spring</label><br>
+      <input type="radio" id="random" name="graphtype" value="random">
+      <label for="random">Random</label><br>
+      <input type="radio" id="circular" name="graphtype" value="circular">
+      <label for="circular">Circular</label><br>
+      <input type="radio" id="shell" name="graphtype" value="shell">
+      <label for="shell">Shell</label><br>
+      <input type="radio" id="spectral" name="graphtype" value="spectral">
+      <label for="spectral">Spectral</label><br>
+      <input type="radio" id="fr" name="graphtype" value="fr">
+      <label for="fr">FR layout</label><br>
+      <input type="radio" id="comdet" name="graphtype" value="comdet">
+      <label for="comdet">Community Detection</label><br><br>
+      <label>Label the graph nodes:</label><br><br>
+      <input type="radio" id="true" name="labelreq" value="true">
+      <label for="true">Yes</label><br>
+      <input type="radio" id="false" name="labelreq" value="false">
+      <label for="false">No</label><br><br>
+    </div>
+    <input class="uisignupbutton" type="submit" value="Generate Graph">
+  </form>
+</body>
+
+</html>

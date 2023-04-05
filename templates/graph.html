@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>r/{{ subreddit_name }} Graph</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="../d3.v4.min.js"></script>
+  <script src="../mpld3.v0.3.1.dev1.min.js"></script>
+</head>
+
+<body>
+  <nav class="menu">
+    <a href="/" class="title">Subreddit's Post Comments Analyzer</a>
+  </nav>
+  <h1 class="titles">r/{{ subreddit_name }} Subreddit's Post Comments Graph</h1>
+  <div class="graph" id="graph">
+    {{ html_graph|safe }}
+  </div>
+  <div class="titles" style="text-align: center;">
+    Number of edges in the graph is: {{numedges}}<br><br>
+    Number of nodes in the graph is: {{numnodes}}
+  </div><br><br>
+  <form style="text-align: justify;margin-left:40%;" class="names" method="POST" action="/measures">
+    <label class="titles">Select the measures type:</label><br><br>
+    <input type="radio" id="DCentrality" name="measures" value="DCentrality">
+    <label for="DCentrality">Degree Centrality</label><br>
+    <input type="radio" id="BCentrality" name="measures" value="BCentrality">
+    <label for="BCentrality">Betweeness Centrality</label><br>
+    <input type="radio" id="CCentrality" name="measures" value="CCentrality">
+    <label for="CCentrality">Closeness Centrality</label> <br>
+    <input type="radio" id="Density" name="measures" value="Density">
+    <label for="Density">Density</label> <br>
+    <input type="radio" id="Degree" name="measures" value="Degree">
+    <label for="Degree">Degree of each node</label> <br>
+    <input type="radio" id="Transitivity" name="measures" value="Transitivity">
+    <label for="Transitivity">Transitivity</label> <br><br>
+    <input class="uisignupbutton" type="submit" value="Get Values"><br><br>
+    <input class="uisignupbutton" type="submit" formmethod="post" formaction="/download"
+      value="Download GraphML File"></button>
+  </form>
+</body>
+
+</html>
